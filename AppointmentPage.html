@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Scheduling System</title>
+    <link rel="stylesheet" href="AppointmentPage.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="AppointmentPage.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo"><i class="fas fa-user-md"></i> Therapy .</a>
+        <span id="welcomeName"></span>
+        <nav class="navbar">
+            <a href="AppointmentPage.html">Appointments</a>
+            <a href="loginPage.html">Logout</a>
+        </nav>
+    </header>
+    <section class="home" id="home">
+        <div class="container">
+            <div class="navigation">
+                <ul>
+                    <li>
+                        <button id="dailyViewBtn"><span class="title">Daily View</span></button>
+                    </li>
+                    <li>
+                        <button id="weeklyViewBtn"><span class="title">Weekly View</span></button>
+                    </li>
+                    <li>
+                        <button id="monthlyViewBtn"><span class="title">Monthly View</span></button>
+                    </li>
+                </ul>
+            </div>
+            <div class="sidebar">
+                <input type="text" id="searchBar" placeholder="Search...">
+                <div class="certification-filter">
+                    <select id="certificationSelect" multiple style="width: 90%; margin: 10px;">
+                        <!-- Certification options will be populated here -->
+                    </select>
+                    <button id="clearCertificationFilter" style="margin: 10px;">Clear Filters</button>
+                </div>
+                <ul id="workerList">
+                    <!-- Workers will be generated here using JavaScript -->
+                </ul>
+                <ul id="apptList">
+                    <!--List will be populated with appointments if user is signed in as therapist-->
+                </ul>
+            </div>
+        </div>
+
+        <div class="schedule">
+            <div class="schedule-header">
+                <h1 class="heading"> <span>book </span>now </h1>
+                <h2 id="currentWeek">Week of February 20-26, 2024</h2>
+                <button id="prevWeek"><i class="fas fa-chevron-left"></i></button>
+                <button id="nextWeek"><i class="fas fa-chevron-right"></i></button>
+            </div>
+
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th colspan="7" id="currentWeek"></th>
+                    </tr>
+                    <tr>
+                        <th class="time-column">Time</th>
+                        <th id="day1">Mon</th>
+                        <th id="day2">Tue</th>
+                        <th id="day3">Wed</th>
+                        <th id="day4">Thu</th>
+                        <th id="day5">Fri</th>
+                        <th id="day6">Sat</th>
+                    </tr>
+                </thead>
+                <tbody id="schedule-body">
+                    <!-- Schedule times will be generated here dynamically using JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Appointment Form -->
+        <div id="appointmentForm" style="display:none;">
+            <h2>Appointment Details</h2>
+            <input type="hidden" id="appointmentDate" />
+            <input type="hidden" id="selectedTherapistId" name="selectedTherapistId">
+            <input type="text" id="appointmentName" placeholder="First Name">
+            <input type="text" id="appointmentLName" placeholder="Last Name">
+            <input type="date" id="appointmentDOB" placeholder="Date of Birth">
+            <label for="appointmentCertifications">Select Certification(s):</label>
+            <select id="appointmentCertifications" multiple style="width: 90%; margin: 10px;">
+                <!-- Certification options will be populated dynamically -->
+            </select>
+            <div class="form-buttons">
+                <button onclick="saveAppointment()" id="saveBtn">Save Appointment</button>
+                <button id="cancelAppointmentButton" onclick="cancelAppointment()">Cancel</button>
+            </div>
+        </div>
+
+        <!-- Appointment Detail View -->
+        <div id="appointmentDetailView" style="display:none;">
+            <h2>Appointment Details</h2>
+            <p id="detailFName">First Name: </p>
+            <p id="detailLName">Last Name: </p>
+            <p id="detailDOB">Date of Birth: </p>
+            <p id="detailCertification">Certification: </p>
+            <button onclick="closeAppointmentDetails()">Close</button>
+            <button id="deleteAppointmentButton">Delete Appointment</button>
+        </div>
+    </section>
+</body>
+</html>

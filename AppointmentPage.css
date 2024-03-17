@@ -1,0 +1,460 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    outline: none; border: none;
+    text-transform: capitalize;
+    transition: all .2s ease-out;
+    text-decoration: none;
+}
+:root{
+    --green: #16a085;
+    --black: #444;
+    --light-color: #777;
+    --white: #ffffff;
+    --box-shadow:.5rem .5rem 0 rgba(22,160,133,.2);
+    --text-shadow: .4rem .4rem 0 rgba(0,0,0,.2);
+    --border: .2rem solid var(--green);
+}
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 7rem;
+    scroll-behavior: smooth;
+}
+
+
+body{
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+.header{
+    padding: 2rem 9%;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 10000;
+    box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+}
+.header .logo{
+    font-size: 2.5rem;
+    color: var(--black);
+
+}
+.header .logo i{
+     color: var(--green);
+    
+}
+.header .navbar a{
+    font-size: 1.7rem;
+    color: var(--light-color);
+    margin-left: 2rem;
+}
+.header .navbar a:hover{
+    color: var(--green);
+}
+
+
+.home{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding-top: 7.5rem;
+}
+
+
+.container{
+    position: relative;
+    width: 100%;
+   
+
+}
+.navigation {
+    position: fixed;
+    width: 200px;
+    height: 100%;
+    top: 7.5rem;
+    background-color: var(--green);
+    border-left: 10px solid var(--green);
+    transition: 0.5s;
+    overflow: hidden;
+
+}
+.navigation ul {
+    position: relative;
+    left: 0;
+    width: 100%;
+}
+
+.navigation ul li {
+    position: relative;
+    width: 100%;
+    list-style: none;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.navigation ul li:hover {
+    background-color: var(--white);
+}
+
+.navigation ul li button {
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: var(--white);
+    background-color: transparent; 
+    border: none;
+    cursor: pointer; 
+    padding: 0; 
+}
+
+.navigation ul li button:hover .title {
+    color: var(--green);
+}
+
+.navigation ul li button .icon {
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+}
+
+.navigation ul li button .icon i {
+    font-size: 3rem;
+}
+
+.navigation ul li button .title {
+    position: relative;
+    display: block;
+    padding: 0 20px;
+    height: 60px;
+    line-height: 80px;
+    text-align: start;
+    white-space: nowrap;
+    font-size: 1.5rem;
+}
+
+.navigation ul li:hover button::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: -50px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 35px 35px 0 10px var(--white);
+    pointer-events: none;
+}
+
+.navigation ul li:hover button::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -50px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 35px -35px 0 10px var(--white);
+    pointer-events: none;
+}
+/* Additional CSS for the monthly view */
+#monthlyHeader th {
+    background-color: var(--green);
+    color: white;
+    border: none;
+    padding: 1rem;
+    text-align: center;
+
+}
+
+#schedule-body td {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    /* Responsive styling for monthly view */
+    #schedule-body td {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 1rem;
+    }
+}
+
+.heading{
+    text-align: center;
+    padding-bottom: 2rem;
+    text-shadow: var(--text-shadow);
+    text-transform: uppercase;
+    color: var(--black);
+    font-size: 5rem;
+    letter-spacing:.4rem ;
+}
+
+
+
+.sidebar {
+    position: fixed;
+    right: 0;
+    top: 7.5rem; 
+    width: 200px; 
+    height: 100%;
+    background-color: #f9f9f9;
+    overflow-y: auto;
+    z-index: 10;
+    padding-bottom: 20px;
+}
+
+.sidebar input[type="text"],
+.sidebar select {
+    margin: 0 20px 20px 20px;
+    width: calc(100% - 50px);
+    padding: 10px;
+    color: #16a085;
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    padding: 10px 20px;
+    border-bottom: 1px solid #16a085;
+    cursor: pointer;
+}
+
+.sidebar ul li:hover {
+    background-color: #16a085;
+}
+
+.sidebar ul .selected {
+    background-color: #16a085;
+}
+
+.schedule {
+    background-color: #f5f5f5;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    margin: .5rem auto 2rem auto; 
+    width: calc(100% - 500px); 
+    box-sizing: border-box; 
+}
+
+.schedule-header {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+/* Schedule Table Styles */
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.schedule-table th, .schedule-table td {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    text-align: center;
+}
+
+.schedule-table th {
+    background-color: #16a085;
+    color: white;
+    border: none;
+}
+
+.schedule-table td {
+    background-color: white;
+}
+
+.schedule-table th:first-child, .schedule-table td:first-child {
+    text-align: right;
+    padding-right: 1rem;
+    font-size: 2rem;
+    color: #000;
+    line-height: 1.8;
+}
+
+/* Styles for Appointment Form */
+#appointmentForm {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+    max-width: 90%;
+}
+
+#appointmentForm input,
+#appointmentForm textarea {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+}
+
+#appointmentForm .form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+#appointmentForm .form-buttons button {
+    flex-grow: 1;
+    margin: 0.5rem;
+    padding: 1rem;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.5rem;
+}
+
+#appointmentForm .form-buttons button:first-child {
+    background-color: #16a085;
+}
+
+#appointmentForm .form-buttons button:last-child {
+    background-color: #16a085;
+}
+
+/* Styles for Appointment Detail View */
+#appointmentDetailView {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+    z-index: 1002;
+    max-width: 90%;
+    font-size: 2rem;
+}
+
+#appointmentDetailView p {
+    margin: 1rem 0;
+}
+
+#appointmentDetailView .detail-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+#appointmentDetailView .detail-buttons button {
+    flex-grow: 1;
+    margin: 0.5rem;
+    padding: 1rem;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.5rem;
+}
+
+#appointmentDetailView .detail-buttons button:first-child {
+    background-color: var(--green);
+}
+
+#appointmentDetailView .detail-buttons button:last-child {
+    background-color: var(--green);
+}
+/* Monthly view styling */
+.monthly-view .time-column {
+    display: none;
+}
+
+.schedule-table.monthly-view td {
+    font-size: 1rem; 
+}
+
+
+
+
+
+@media only screen and (max-width: 768px) {
+    .header {
+        padding: 1rem; 
+    }
+
+    .sidebar {
+        width: 100%; 
+        max-width: 100%;
+        position: relative; 
+        top: 0; 
+    }
+
+    .schedule {
+        margin-right: 0; 
+    }
+
+    .schedule-header {
+        font-size: 3rem; 
+    }
+
+    
+}
+@media screen and (max-width: 768px) {
+    .schedule-table th,
+    .schedule-table td {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 5rem; 
+    }
+    
+    .schedule-table thead tr {
+        display: none; 
+    }
+    
+    .schedule-table tbody tr {
+        display: block;
+        margin-bottom: 20px;
+    }
+    
+    .schedule-table tbody td {
+        display: block;
+        text-align: center;
+    }
+}
+@media screen and (max-width: 768px) {
+   
+    #appointmentForm {
+        padding: 3px;
+    }
+
+    #appointmentForm input[type="text"],
+    #appointmentForm input[type="date"],
+    #appointmentForm textarea {
+        font-size: 14px; 
+    }
+
+    #appointmentForm .form-buttons button {
+        font-size: 14px; 
+    }
+}
